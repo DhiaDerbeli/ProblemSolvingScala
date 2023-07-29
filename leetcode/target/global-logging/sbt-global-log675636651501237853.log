@@ -1,0 +1,88 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.9.3 (Oracle Corporation Java 20.0.2)
+[debug] Load.defaultLoad until apply took 79.0495ms
+[debug]           Load.loadUnit: plugins took 54.8802ms
+[debug]           Load.loadUnit: defsScala took 0.2598ms
+[debug] [Loading] Scanning directory C:\Users\SBS\Desktop\ProblemSolvingScala\leetcode\project
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\SBS\Desktop\ProblemSolvingScala\leetcode\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 14.3667 ms
+[debug]               Load.resolveProject(leetcode-build) took 43.1272ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id leetcode-build, base: C:\Users\SBS\Desktop\ProblemSolvingScala\leetcode\project, plugins: List(<none>))) took 79.2703ms
+[debug] [Loading] Done in C:\Users\SBS\Desktop\ProblemSolvingScala\leetcode\project, returning: (leetcode-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 98.6932ms
+[debug]           Load.loadUnit: cleanEvalClasses took 0.2388ms
+[debug]         Load.loadUnit(file:/C:/Users/SBS/Desktop/ProblemSolvingScala/leetcode/project/, ...) took 159.3819ms
+[debug]       Load.apply: load took 315.6211ms
+[debug]       Load.apply: resolveProjects took 9.3593ms
+[debug]       Load.apply: finalTransforms took 46.3033ms
+[debug]       Load.apply: config.delegates took 6.4667ms
+[debug]       Load.apply: Def.make(settings)... took 302.4251ms
+[debug]       Load.apply: structureIndex took 73.7654ms
+[debug]       Load.apply: mkStreams took 1.6643ms
+[info] loading project definition from C:\Users\SBS\Desktop\ProblemSolvingScala\leetcode\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug]     Load.loadUnit: plugins took 4371.151ms
+[debug]     Load.loadUnit: defsScala took 0.0028ms
+[debug] [Loading] Scanning directory C:\Users\SBS\Desktop\ProblemSolvingScala\leetcode
+[debug]       Load.loadUnit: mkEval took 2.885ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 0.995 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 1.762ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: C:\Users\SBS\Desktop\ProblemSolvingScala\leetcode, plugins: List(<none>))) took 3.7818ms
+[debug] [Loading] Done in C:\Users\SBS\Desktop\ProblemSolvingScala\leetcode, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 1625.0332ms
+[debug]     Load.loadUnit: cleanEvalClasses took 7.1163ms
+[debug]   Load.loadUnit(file:/C:/Users/SBS/Desktop/ProblemSolvingScala/leetcode/, ...) took 6004.5599ms
+[debug] Load.apply: load took 6036.9012ms
+[debug] Load.apply: resolveProjects took 0.0807ms
+[debug] Load.apply: finalTransforms took 10.5552ms
+[debug] Load.apply: config.delegates took 0.3143ms
+[debug] Load.apply: Def.make(settings)... took 44.853ms
+[debug] Load.apply: structureIndex took 23.5998ms
+[debug] Load.apply: mkStreams took 0.0018ms
+[info] set current project to leetcode (in build file:/C:/Users/SBS/Desktop/ProblemSolvingScala/leetcode/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(shell, None, None)
+[info] sbt server started at local:sbt-server-592b19530745fbb4464b
+[debug] Writing bsp connection file
+[info] started sbt server

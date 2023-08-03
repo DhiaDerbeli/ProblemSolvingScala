@@ -55,7 +55,7 @@ final case class SegmentTree(initialArray: Array[Int], operation: (Int, Int) => 
 }
 
 
-object SegmentTree extends App{
+object SegmentTree {
 
   @tailrec
   private def leftMostSetBit(x: Int, pos: Int = 0): Int = {

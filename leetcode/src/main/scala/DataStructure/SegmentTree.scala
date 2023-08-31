@@ -1,66 +1,59 @@
 package DataStructure
 
-import scala.annotation.tailrec
+trait SegmentTree[+T]{
+  def value: T
+  def isEmpty: Boolean
 
-final case class SegmentTree(initialArray: Array[Int], operation: (Int, Int) => Int) {
+  def search(low: Int, high: Int): Option[T]
 
+}
 
-  val n: Int = initialArray.length
+object Empty extends SegmentTree[Nothing] {
+  def value = throw new NoSuchElementException
+  override def isEmpty: Boolean = true
 
-  private val treeArraySize: Int = 4 << SegmentTree.leftMostSetBit(n)
-  private val treeArrayHalfSize: Int = treeArraySize / 2
+  override def search(low: Int, high: Int) : Option[Nothing] = None
+}
 
-  private val tree: Array[Int] = Array.fill(treeArraySize)(0)
+case class Cons[T](element: T, leftChild: SegmentTree[T], rightChild: SegmentTree[T], leftBound: Int, rightBound: Int, operation: (T, T) => T)  extends SegmentTree[T]{
+  override def value: T = element
 
-  @tailrec
-  def initializeTree(idx: Int = 0): Unit = {
-    if(idx == n) ()
+  override def isEmpty: Boolean = false
+
+  def search(low: Int, high: Int): Option[T] = {
+    val res = if(low <= leftBound && high >= rightBound) Some(value)
+    else if(low > rightBound || high < leftBound) None
     else {
-      tree(idx + treeArrayHalfSize) = initialArray(idx)
-      initializeTree(idx + 1)
-    }
-  }
-
-
-  def buildTree(idx: Int = 1): Unit = {
-    if(idx >= treeArrayHalfSize) tree(idx)
-    else {
-      buildTree((idx << 1) + 1)
-      buildTree(idx << 1)
-      tree(idx) = operation(tree((idx << 1) + 1), tree(idx << 1))
-    }
-  }
-
-  def updateTree(idx: Int, value: Int): Unit = {
-    tree(idx + treeArrayHalfSize) = value
-    @tailrec
-    def updateNode(nodeIndex: Int): Unit = {
-      if(nodeIndex == 0) ()
-      else {
-        tree(nodeIndex) = operation(tree(nodeIndex << 1), tree((idx >> 1) + 1))
-        updateNode(nodeIndex >> 1)
+      val leftSearch = leftChild.search(low, high)
+      val rightSearch = rightChild.search(low, high)
+      (leftSearch, rightSearch) match {
+        case (Some(l), Some(r)) => Some(operation(r, l))
+        case (Some(l), _) => Some(l)
+        case (_, Some(r)) => Some(r)
+        case _ => None
       }
     }
-    updateNode((idx + treeArrayHalfSize) >> 1)
-  }
-
-  def rangeQuery(left: Int, right: Int, start: Int = 0, finish: Int = treeArrayHalfSize - 1, root: Int = 1): Int = {
-    if(start >= left && finish <= right) tree(root)
-    else if(start > right || finish < left) 0
-    else {
-      val mid = (start + finish) / 2
-      operation(rangeQuery(left, right, start, mid, root << 1), rangeQuery(left, right, mid + 1, finish, (root << 1) + 1))
-    }
+    println(leftBound, rightBound, res)
+    res
   }
 }
 
-
-object SegmentTree {
-
-  @tailrec
-  private def leftMostSetBit(x: Int, pos: Int = 0): Int = {
-    if (x == 0) pos
-    else leftMostSetBit(x >> 1, pos + 1)
+object SegmentTree extends App {
+  def apply[T](array: Array[T], operation: (T, T) => T): SegmentTree[T] = {
+    def constructTree(leftBound: Int, rightBound: Int): SegmentTree[T] = {
+      if(leftBound >= rightBound) Cons(array(leftBound), Empty, Empty, leftBound, rightBound, operation)
+      else {
+        val mid = (leftBound + rightBound) / 2
+        val leftChild = constructTree(leftBound, mid)
+        val rightChild = constructTree(mid + 1, rightBound)
+        Cons(operation(leftChild.value, rightChild.value), leftChild, rightChild, leftBound, rightBound, operation)
+      }
+    }
+    constructTree(0, array.length - 1)
   }
 
+  val array = Array(1, 2, 3, 2, 3, 4)
+  val min: (Int, Int) =>  Int = (x, y) => if(x < y) x else y
+  val segmentTree = SegmentTree[Int](array, min)
+  println(segmentTree.search(0, 1))
 }
